@@ -19,7 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
-                sh 'python3 -m unittest discover -s IMC_python -p "test_*.py"'
+                archiveArtifacts "teste.py"
             }
         }
 
