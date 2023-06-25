@@ -1,14 +1,16 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.8'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/mateusfcarvalho/IMC_python.git' 
-                sh 'apt-get update'
-                sh 'apt-get install -y python3 python3-pip npm'
-                sh 'npm install'
-                sh 'pip3 install -r requirements.txt'
+                git 'https://github.com/mateusfcarvalho/IMC_python.git'
+                sh 'pip install -r requirements.txt'
                 sh 'docker build -t calculadora-imc .'
             }
         }
@@ -22,7 +24,7 @@ pipeline {
     
     post {
         always {
-            sh 'apt-get clean'
+            sh 'docker system prune -af'
         }
     }
 }
