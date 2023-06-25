@@ -2,17 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Install Python') {
-            steps {
-                sh 'apt-get update'
-                sh 'apt-get install -y python3'
-                sh 'python3 --version'
-            }
-        }
 
         stage('Build') {
             steps {
                 git 'https://github.com/mateusfcarvalho/IMC_python.git'
+                h 'python3 --version'
             }
         }
 
