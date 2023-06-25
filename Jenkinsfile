@@ -9,17 +9,19 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Testing'
-               
-            }
-        }
-
         stage('Run') {
             steps {
                 sh 'python3 IMC.py'
             }
         }
+
+        stage('Test') {
+            steps {
+                echo 'Testing'
+               sh 'python3 teste.py'
+            }
+        }
+
+       
     }
 }
