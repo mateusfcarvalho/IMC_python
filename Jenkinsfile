@@ -18,7 +18,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                sh 'python3 IMC_python/IMC.py'
+                sh 'python3 IMC.py'
             }
         }
     }
