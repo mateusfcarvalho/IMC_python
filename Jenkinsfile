@@ -5,7 +5,6 @@ pipeline {
 
         stage('Build') {
             steps {
-                git 'https://github.com/mateusfcarvalho/IMC_python.git'
                 h 'python3 --version'
             }
         }
