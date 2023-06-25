@@ -1,8 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.8'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+            image 'python:3.9'
         }
     }
 
@@ -10,21 +9,20 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/mateusfcarvalho/IMC_python.git'
-                sh 'pip install -r requirements.txt'
-                sh 'docker build -t calculadora-imc .'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing'
+                sh 'python -m unittest discover -s IMC_python -p "test_*.py"'
             }
         }
 
         stage('Run') {
             steps {
-                sh 'docker run calculadora-imc'
+                sh 'python IMC_python/calculadora_imc.py'
             }
-        }
-    }
-    
-    post {
-        always {
-            sh 'docker system prune -af'
         }
     }
 }
