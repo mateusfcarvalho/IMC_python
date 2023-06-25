@@ -1,11 +1,15 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.9'
-        }
-    }
+    agent any
 
     stages {
+        stage('Install Python') {
+            steps {
+                sh 'apt-get update'
+                sh 'apt-get install -y python3'
+                sh 'python3 --version'
+            }
+        }
+
         stage('Build') {
             steps {
                 git 'https://github.com/mateusfcarvalho/IMC_python.git'
@@ -15,13 +19,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
-                sh 'python -m unittest discover -s IMC_python -p "test_*.py"'
+                sh 'python3 -m unittest discover -s IMC_python -p "test_*.py"'
             }
         }
 
         stage('Run') {
             steps {
-                sh 'python IMC_python/calculadora_imc.py'
+                sh 'python3 IMC_python/calculadora_imc.py'
             }
         }
     }
