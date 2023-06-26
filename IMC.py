@@ -1,3 +1,5 @@
+import sys
+
 def calcImc(p, a):
     imc = p / (a * a)
     resultado = "Seu IMC é: %.2f" % imc
@@ -17,14 +19,13 @@ def calcImc(p, a):
 
     return resultado
 
-def calcImcUserInput():
-    peso = float(input("Qual o seu peso: "))
-    altura = float(input("Qual a sua altura (em metros): "))
-    print()
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print("Uso: python3 IMC.py <peso> <altura>")
+        sys.exit(1)
+
+    peso = float(sys.argv[1])
+    altura = float(sys.argv[2])
+
     resultado = calcImc(peso, altura)
     print(resultado)
-
-print("Calculadora de IMC em Python")
-print()
-
-calcImcUserInput()
