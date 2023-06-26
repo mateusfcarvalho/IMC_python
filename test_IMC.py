@@ -19,7 +19,7 @@ class TestCalculadoraIMC(unittest.TestCase):
 
     def test_calcImc_obesidade_grau_I(self):
         resultado = IMC.calcImc(90, 1.80)
-        self.assertEqual(resultado, "Seu IMC é: 27.78\nObesidade grau I")
+        self.assertEqual(resultado, "Seu IMC é: 27.78\nLevemente acima do peso!")
 
     def test_calcImc_obesidade_grau_II(self):
         resultado = IMC.calcImc(100, 1.70)
@@ -38,4 +38,3 @@ class TestCalculadoraIMC(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
