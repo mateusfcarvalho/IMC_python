@@ -12,14 +12,11 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
+                sh 'python3 IMC.py'
+                sh '50'
+                sh '1.60'
             }
         }
 
-        stage('Run') {
-            steps {
-                sh 'python3 IMC.py'
-                sh 'python3 teste.py'
-            }
-        }
     }
 }
