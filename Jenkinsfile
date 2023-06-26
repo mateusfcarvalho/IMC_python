@@ -18,8 +18,7 @@ pipeline {
         stage('Run') {
             steps {
                 sh 'python3 IMC.py'
-                sh '58'
-                sh '1.78'
+                sh 'python3 teste.py'
             }
         }
     }
