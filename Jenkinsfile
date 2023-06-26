@@ -19,7 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
-                sh 'python3 teste.py'
+                sh 'python3 test_IMC.py'
 
             }
         }
