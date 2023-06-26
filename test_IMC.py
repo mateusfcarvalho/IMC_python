@@ -23,11 +23,11 @@ class TestCalculadoraIMC(unittest.TestCase):
 
     def test_calcImc_obesidade_grau_II(self):
         resultado = IMC.calcImc(100, 1.70)
-        self.assertEqual(resultado, "Seu IMC é: 34.60\nObesidade grau II! (severa)")
+        self.assertEqual(resultado, "Seu IMC é: 34.60\nObesidade grau I")
 
     def test_calcImc_obesidade_grau_III(self):
         resultado = IMC.calcImc(120, 1.80)
-        self.assertEqual(resultado, "Seu IMC é: 37.04\nObesidade grau III (mórbida)")
+        self.assertEqual(resultado, "Seu IMC é: 37.04\nObesidade grau II! (severa)")
 
     def test_input_usuario(self):
         with patch('builtins.input', side_effect=['70', '1.75']):
