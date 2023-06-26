@@ -31,7 +31,7 @@ class TestCalculadoraIMC(unittest.TestCase):
 
     def test_calcImc_obesidade_grau_III(self):
         resultado = IMC.calcImc(200, 1.80)
-        self.assertEqual(resultado, "Seu IMC é: 37.04\nObesidade grau III (mórbida)")
+        self.assertEqual(resultado, "Seu IMC é: 61.73\nObesidade grau III (mórbida)")
 
 
  
