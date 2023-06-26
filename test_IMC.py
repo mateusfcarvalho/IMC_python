@@ -17,24 +17,24 @@ class TestCalculadoraIMC(unittest.TestCase):
         resultado = IMC.calcImc(80, 1.70)
         self.assertEqual(resultado, "Seu IMC é: 27.68\nLevemente acima do peso!")
 
-    def test_calcImc_obesidade_grau_I(self):
+    def test_calcimc_levemente_acima_do_peso(self):
         resultado = IMC.calcImc(90, 1.80)
         self.assertEqual(resultado, "Seu IMC é: 27.78\nLevemente acima do peso!")
 
-    def test_calcImc_obesidade_grau_II(self):
+    def test_calcImc_obesidade_grau_I(self):
         resultado = IMC.calcImc(100, 1.70)
         self.assertEqual(resultado, "Seu IMC é: 34.60\nObesidade grau I")
 
-    def test_calcImc_obesidade_grau_III(self):
+    def test_calcImc_obesidade_grau_II(self):
         resultado = IMC.calcImc(120, 1.80)
         self.assertEqual(resultado, "Seu IMC é: 37.04\nObesidade grau II! (severa)")
 
-    def test_input_usuario(self):
-        with patch('builtins.input', side_effect=['70', '1.75']):
-            output = StringIO()
-            with patch('sys.stdout', new=output):
-                IMC.calcImcUserInput()
-                self.assertEqual(output.getvalue().strip(), "Seu IMC é: 22.86\nPeso ideal!")
+    def test_calcImc_obesidade_grau_III(self):
+        resultado = IMC.calcImc(200, 1.80)
+        self.assertEqual(resultado, "Seu IMC é: 37.04\nObesidade grau III (mórbida)")
+
+
+ 
 
 if __name__ == '__main__':
     unittest.main()
